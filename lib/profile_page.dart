@@ -209,7 +209,11 @@ class ProfileInfo extends StatelessWidget {
             shape: StadiumBorder(),
             child: Text("Resume"),
             color: Colors.red,
-            onPressed: () {},
+            onPressed: () {
+              html.window.open(
+                  "https://drive.google.com/file/d/13Go8mTr33NV5C5g0z8HH3JF1CF_qucvM/view?usp=sharing",
+                  "Resume");
+            },
             padding: EdgeInsets.all(10),
           ),
           SizedBox(
@@ -222,7 +226,9 @@ class ProfileInfo extends StatelessWidget {
             shape: StadiumBorder(),
             child: Text("Say Hi!"),
             color: Colors.red,
-            onPressed: () {},
+            onPressed: () {
+              html.window.open("https://about.me/yashrastogi", "Yr");
+            },
             padding: EdgeInsets.all(10),
           )
         ],
