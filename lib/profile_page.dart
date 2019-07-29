@@ -1,8 +1,35 @@
+import 'dart:js' as prefix0;
+
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/responsive_widget.dart';
+import 'dart:html' as html;
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
+
+  List<Widget> navButtons() => [
+        NavButton(
+          text: "About",
+          onPressed: () {
+            html.window.open("https://github.com/yashrastogi11", "Yr");
+          },
+        ),
+        NavButton(
+          text: "Projects",
+          onPressed: () {
+            html.window.open(
+                "https://github.com/yashrastogi11?tab=repositories",
+                "projects");
+          },
+        ),
+        NavButton(
+          text: "Contact",
+          onPressed: () {
+            html.window.open("https://about.me/yashrastogi", "Yr");
+          },
+        ),
+      ];
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -16,20 +43,7 @@ class ProfilePage extends StatelessWidget {
             ? Drawer(
                 child: ListView(
                   padding: EdgeInsets.all(20),
-                  children: <Widget>[
-                    NavButton(
-                      text: "About",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "Projects",
-                      onPressed: () {},
-                    ),
-                    NavButton(
-                      text: "Contact",
-                      onPressed: () {},
-                    ),
-                  ],
+                  children: navButtons(),
                 ),
               )
             : null,
@@ -41,7 +55,7 @@ class ProfilePage extends StatelessWidget {
               largeScreen: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  NavHeader(),
+                  NavHeader(navButtons: navButtons()),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
@@ -61,6 +75,9 @@ class ProfilePage extends StatelessWidget {
 }
 
 class NavHeader extends StatelessWidget {
+  final List<Widget> navButtons;
+  const NavHeader({Key key, this.navButtons}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -73,20 +90,7 @@ class NavHeader extends StatelessWidget {
           YRDot(),
           if (!ResponsiveWidget.isSmallScreen(context))
             Row(
-              children: <Widget>[
-                NavButton(
-                  text: "About",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "Projects",
-                  onPressed: () {},
-                ),
-                NavButton(
-                  text: "Contact",
-                  onPressed: () {},
-                ),
-              ],
+              children: navButtons,
             )
         ],
       ),
