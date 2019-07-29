@@ -17,7 +17,18 @@ class ProfilePage extends StatelessWidget {
                 child: ListView(
                   padding: EdgeInsets.all(20),
                   children: <Widget>[
-                    Text("helo")
+                    NavButton(
+                      text: "About",
+                      onPressed: () {},
+                    ),
+                    NavButton(
+                      text: "Projects",
+                      onPressed: () {},
+                    ),
+                    NavButton(
+                      text: "Contact",
+                      onPressed: () {},
+                    ),
                   ],
                 ),
               )
@@ -68,7 +79,7 @@ class NavHeader extends StatelessWidget {
                   onPressed: () {},
                 ),
                 NavButton(
-                  text: "Work",
+                  text: "Projects",
                   onPressed: () {},
                 ),
                 NavButton(
@@ -187,6 +198,7 @@ class ProfileInfo extends StatelessWidget {
         height: 20,
       ),
       Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           RaisedButton(
@@ -233,7 +245,7 @@ class ProfileInfo extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
           ),
-          profileData
+          profileData,
         ],
       ),
     );
@@ -253,10 +265,15 @@ class SocialInfo extends StatelessWidget {
               NavButton(
                 text: "Github",
                 onPressed: () {},
-                color: Colors.orange
+                color: Colors.orange,
               ),
               NavButton(
                 text: "Twitter",
+                onPressed: () {},
+                color: Colors.orange,
+              ),
+              NavButton(
+                text: "LinkedIn",
                 onPressed: () {},
                 color: Colors.orange,
               ),
@@ -287,12 +304,20 @@ class SocialInfo extends StatelessWidget {
           NavButton(
             text: "Twitter",
             onPressed: () {},
-            color: Colors.orange
+            color: Colors.orange,
+          ),
+          NavButton(
+            text: "LinkedIn",
+            onPressed: () {},
+            color: Colors.orange,
           ),
           NavButton(
             text: "Facebook",
             onPressed: () {},
             color: Colors.orange,
+          ),
+          SizedBox(
+            height: 20,
           ),
           Text(
             "Yash Rastogi ©️2019",
