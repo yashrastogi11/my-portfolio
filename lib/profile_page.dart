@@ -326,8 +326,8 @@ class SocialInfo extends StatelessWidget {
       smallScreen: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          ...socialMediaWidgets(),
+        children: <Widget>[ 
+          ...socialMediaWidgets(), 
           SizedBox(
             height: 20,
           ),
