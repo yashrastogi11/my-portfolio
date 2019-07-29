@@ -1,5 +1,3 @@
-import 'dart:js' as prefix0;
-
 import 'package:flutter_web/material.dart';
 import 'package:portfolio/responsive_widget.dart';
 import 'dart:html' as html;
@@ -248,7 +246,7 @@ class ProfileInfo extends StatelessWidget {
         ],
       ),
       smallScreen: Column(
-        mainAxisSize: MainAxisSize.max,
+        // mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
           profileImage(context),
@@ -263,6 +261,55 @@ class ProfileInfo extends StatelessWidget {
 }
 
 class SocialInfo extends StatelessWidget {
+  List<Widget> socialMediaWidgets() {
+    return [
+      NavButton(
+        text: "GitHub",
+        onPressed: () {
+          html.window.open("https://github.com/yashrastogi11", "Git");
+        },
+        color: Colors.orange,
+      ),
+      NavButton(
+        text: "Twitter",
+        onPressed: () {
+          html.window.open("https://twitter.com/yash_rastogi1", "Twitter");
+        },
+        color: Colors.orange,
+      ),
+      NavButton(
+        text: "LinkedIn",
+        onPressed: () {
+          html.window
+              .open("https://www.linkedin.com/in/yash-rastogi/", "LinkedIn");
+        },
+        color: Colors.orange,
+      ),
+      NavButton(
+        text: "Facebook",
+        onPressed: () {
+          html.window.open("https://www.facebook.com/yash.rastogi.581", "Fb");
+        },
+        color: Colors.orange,
+      ),
+      NavButton(
+        text: "Instagram",
+        onPressed: () {
+          html.window.open("https://www.instagram.com/yashrastogi11/", "Insta");
+        },
+        color: Colors.orange,
+      ),
+    ];
+  }
+
+  Widget copyRightText() => Text(
+        "Yash Rastogi ©️2019",
+        textAlign: TextAlign.center,
+        style: TextStyle(
+          color: Colors.grey,
+        ),
+      );
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -271,71 +318,20 @@ class SocialInfo extends StatelessWidget {
         children: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              NavButton(
-                text: "Github",
-                onPressed: () {},
-                color: Colors.orange,
-              ),
-              NavButton(
-                text: "Twitter",
-                onPressed: () {},
-                color: Colors.orange,
-              ),
-              NavButton(
-                text: "LinkedIn",
-                onPressed: () {},
-                color: Colors.orange,
-              ),
-              NavButton(
-                text: "Facebook",
-                onPressed: () {},
-                color: Colors.orange,
-              ),
-            ],
+            children: socialMediaWidgets(),
           ),
-          Text(
-            "Yash Rastogi ©️2019",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
+          copyRightText(),
         ],
       ),
       smallScreen: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          NavButton(
-            text: "Github",
-            onPressed: () {},
-            color: Colors.orange,
-          ),
-          NavButton(
-            text: "Twitter",
-            onPressed: () {},
-            color: Colors.orange,
-          ),
-          NavButton(
-            text: "LinkedIn",
-            onPressed: () {},
-            color: Colors.orange,
-          ),
-          NavButton(
-            text: "Facebook",
-            onPressed: () {},
-            color: Colors.orange,
-          ),
+          ...socialMediaWidgets(),
           SizedBox(
             height: 20,
           ),
-          Text(
-            "Yash Rastogi ©️2019",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: Colors.grey,
-            ),
-          ),
+          copyRightText(),
         ],
       ),
     );
