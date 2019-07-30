@@ -1,11 +1,12 @@
 import 'package:flutter_web/material.dart';
+import 'package:portfolio/contact.dart';
 import 'package:portfolio/responsive_widget.dart';
 import 'dart:html' as html;
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
 
-  List<Widget> navButtons() => [
+  List<Widget> navButtons(context) => [
         NavButton(
           text: "About",
           onPressed: () {
@@ -26,22 +27,31 @@ class ProfilePage extends StatelessWidget {
             html.window.open("https://about.me/yashrastogi", "Yr");
           },
         ),
+        // FlatButton(
+        //     child: Text(
+        //       "GO",
+        //       textScaleFactor: 1.25,
+        //     ),
+        //     onPressed: () {
+        //       Navigator.of(context).push(MaterialPageRoute(
+        //           builder: (BuildContext context) => Contact()));
+        //     }),
       ];
 
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
       largeScreen: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 248, 243, 240),
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Colors.black,
+          backgroundColor: Color.fromARGB(255, 53, 71, 57),
         ),
         drawer: ResponsiveWidget.isSmallScreen(context)
             ? Drawer(
                 child: ListView(
                   padding: EdgeInsets.all(20),
-                  children: navButtons(),
+                  children: navButtons(context),
                 ),
               )
             : null,
@@ -53,7 +63,9 @@ class ProfilePage extends StatelessWidget {
               largeScreen: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
-                  NavHeader(navButtons: navButtons()),
+                  NavHeader(
+                    navButtons: navButtons(context),
+                  ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.1,
                   ),
@@ -105,6 +117,7 @@ class YRDot extends StatelessWidget {
           "YR",
           textScaleFactor: 2,
           style: TextStyle(
+            color: Color.fromARGB(255, 53, 71, 57),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -117,7 +130,7 @@ class YRDot extends StatelessWidget {
           width: 15,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
-            color: Colors.orange,
+            color: Color.fromARGB(255, 206, 133, 35),
           ),
         ),
       ],
@@ -128,23 +141,23 @@ class YRDot extends StatelessWidget {
 class NavButton extends StatelessWidget {
   final text;
   final onPressed;
-  final Color color;
-  const NavButton(
-      {Key key,
-      @required this.text,
-      @required this.onPressed,
-      this.color = Colors.orange})
-      : super(key: key);
+  const NavButton({
+    Key key,
+    @required this.text,
+    @required this.onPressed,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return OutlineButton(
-      child: Text(text),
-      borderSide: BorderSide(
-        color: color,
+    return FlatButton(
+      child: Text(
+        text,
+        textScaleFactor: 1.25,
+        style: TextStyle(
+          color: Colors.black,
+        ),
       ),
       onPressed: onPressed,
-      highlightedBorderColor: color,
     );
   }
 }
@@ -158,11 +171,9 @@ class ProfileInfo extends StatelessWidget {
             ? MediaQuery.of(context).size.height * 0.25
             : MediaQuery.of(context).size.width * 0.25,
         decoration: BoxDecoration(
-          backgroundBlendMode: BlendMode.luminosity,
-          color: Colors.deepOrange,
           shape: BoxShape.circle,
           image: DecorationImage(
-            image: AssetImage("yr.jpg"),
+            image: AssetImage("yr1.jpeg"),
             alignment: Alignment.center,
             fit: BoxFit.cover,
           ),
@@ -175,18 +186,23 @@ class ProfileInfo extends StatelessWidget {
           Text(
             "Hi there! My name is",
             textScaleFactor: 2,
-            style: TextStyle(color: Colors.orange),
+            style: TextStyle(
+              color: Color.fromARGB(255, 179, 84, 23),
+            ),
+          ),
+          SizedBox(
+            height: 20,
           ),
           Text(
             "Yash\nRastogi",
             textScaleFactor: 5,
             style: TextStyle(
-              color: Colors.white,
+              color: Color.fromARGB(255, 53, 71, 57),
               fontWeight: FontWeight.bold,
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 30,
           ),
           Text(
             "Self-motivated student, with an eagerness to accept\n"
@@ -194,7 +210,9 @@ class ProfileInfo extends StatelessWidget {
             "Aspiring Flutter Developer and ML enthusiast.",
             softWrap: true,
             textScaleFactor: 1.5,
-            style: TextStyle(color: Colors.white70),
+            style: TextStyle(
+              color: Color.fromARGB(255, 179, 84, 23),
+            ),
           ),
           SizedBox(
             height: 20,
@@ -212,8 +230,11 @@ class ProfileInfo extends StatelessWidget {
                         "Resume");
                   },
                   shape: StadiumBorder(),
-                  child: Text("Resume"),
-                  color: Colors.red,
+                  child: Text(
+                    "Resume",
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  color: Color.fromARGB(255, 206, 133, 35),
                   padding: EdgeInsets.all(10),
                 ),
               ),
@@ -224,11 +245,16 @@ class ProfileInfo extends StatelessWidget {
                 minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 90,
                 child: OutlineButton(
                   borderSide: BorderSide(
-                    color: Colors.red,
+                    color: Color.fromARGB(255, 206, 133, 35),
                   ),
                   shape: StadiumBorder(),
-                  child: Text("Say Hi!"),
-                  color: Colors.red,
+                  child: Text(
+                    "Say Hi!",
+                    style: TextStyle(
+                      color: Colors.black,
+                    ),
+                  ),
+                  color: Color.fromARGB(255, 206, 133, 35),
                   onPressed: () {
                     html.window.open("https://about.me/yashrastogi", "Yr");
                   },
@@ -280,9 +306,9 @@ class IconButtonClass extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: ResponsiveWidget.isSmallScreen(context)
-          ? MediaQuery.of(context).size.width / 7
-          : MediaQuery.of(context).size.width / 12,
-      color: Colors.white70,
+          ? MediaQuery.of(context).size.width / 7.5
+          : MediaQuery.of(context).size.width / 15,
+      color: Colors.transparent,
       child: IconButton(
         icon: Image.asset(image),
         onPressed: onPressed,
