@@ -169,70 +169,76 @@ class ProfileInfo extends StatelessWidget {
         ),
       );
 
-  final profileData = Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: <Widget>[
-      Text(
-        "Hi there! My name is",
-        textScaleFactor: 2,
-        style: TextStyle(color: Colors.orange),
-      ),
-      Text(
-        "Yash\nRastogi",
-        textScaleFactor: 5,
-        style: TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-      SizedBox(
-        height: 10,
-      ),
-      Text(
-        "Self-motivated student, with an eagerness to accept\n"
-        "challenges while learning and gaining experience from them.\n"
-        "Aspiring Flutter Developer and ML enthusiast.",
-        softWrap: true,
-        textScaleFactor: 1.5,
-        style: TextStyle(color: Colors.white70),
-      ),
-      SizedBox(
-        height: 20,
-      ),
-      Row(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+  profileData(context) => Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          RaisedButton(
-            shape: StadiumBorder(),
-            child: Text("Resume"),
-            color: Colors.red,
-            onPressed: () {
-              html.window.open(
-                  "https://drive.google.com/file/d/13Go8mTr33NV5C5g0z8HH3JF1CF_qucvM/view?usp=sharing",
-                  "Resume");
-            },
-            padding: EdgeInsets.all(10),
+          Text(
+            "Hi there! My name is",
+            textScaleFactor: 2,
+            style: TextStyle(color: Colors.orange),
+          ),
+          Text(
+            "Yash\nRastogi",
+            textScaleFactor: 5,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+            ),
           ),
           SizedBox(
-            width: 20,
+            height: 10,
           ),
-          OutlineButton(
-            borderSide: BorderSide(
-              color: Colors.red,
-            ),
-            shape: StadiumBorder(),
-            child: Text("Say Hi!"),
-            color: Colors.red,
-            onPressed: () {
-              html.window.open("https://about.me/yashrastogi", "Yr");
-            },
-            padding: EdgeInsets.all(10),
+          Text(
+            "Self-motivated student, with an eagerness to accept\n"
+            "challenges while learning and gaining experience from them.\n"
+            "Aspiring Flutter Developer and ML enthusiast.",
+            softWrap: true,
+            textScaleFactor: 1.5,
+            style: TextStyle(color: Colors.white70),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              ButtonTheme(
+                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 90,
+                child: RaisedButton(
+                  onPressed: () {
+                    html.window.open(
+                        "https://drive.google.com/file/d/13Go8mTr33NV5C5g0z8HH3JF1CF_qucvM/view?usp=sharing",
+                        "Resume");
+                  },
+                  shape: StadiumBorder(),
+                  child: Text("Resume"),
+                  color: Colors.red,
+                  padding: EdgeInsets.all(10),
+                ),
+              ),
+              SizedBox(
+                width: 20,
+              ),
+              ButtonTheme(
+                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 90,
+                child: OutlineButton(
+                  borderSide: BorderSide(
+                    color: Colors.red,
+                  ),
+                  shape: StadiumBorder(),
+                  child: Text("Say Hi!"),
+                  color: Colors.red,
+                  onPressed: () {
+                    html.window.open("https://about.me/yashrastogi", "Yr");
+                  },
+                  padding: EdgeInsets.all(10),
+                ),
+              )
+            ],
           )
         ],
-      )
-    ],
-  );
+      );
 
   @override
   Widget build(BuildContext context) {
@@ -242,7 +248,7 @@ class ProfileInfo extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           profileImage(context),
-          profileData,
+          profileData(context),
         ],
       ),
       smallScreen: Column(
@@ -253,8 +259,33 @@ class ProfileInfo extends StatelessWidget {
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
           ),
-          profileData,
+          profileData(context),
         ],
+      ),
+    );
+  }
+}
+
+class IconButtonClass extends StatelessWidget {
+  final image;
+  final onPressed;
+
+  const IconButtonClass({
+    Key key,
+    @required this.image,
+    @required this.onPressed,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: ResponsiveWidget.isSmallScreen(context)
+          ? MediaQuery.of(context).size.width / 7
+          : MediaQuery.of(context).size.width / 12,
+      color: Colors.white70,
+      child: IconButton(
+        icon: Image.asset(image),
+        onPressed: onPressed,
       ),
     );
   }
@@ -263,52 +294,39 @@ class ProfileInfo extends StatelessWidget {
 class SocialInfo extends StatelessWidget {
   List<Widget> socialMediaWidgets() {
     return [
-      NavButton(
-        text: "GitHub",
+      IconButtonClass(
+        image: "github.png",
         onPressed: () {
-          html.window.open("https://github.com/yashrastogi11", "Git");
+          html.window.open("https://www.github.com/yashrastogi11", "GitHub");
         },
-        color: Colors.orange,
       ),
-      NavButton(
-        text: "Twitter",
+      IconButtonClass(
+        image: "twitter.png",
         onPressed: () {
           html.window.open("https://twitter.com/yash_rastogi1", "Twitter");
         },
-        color: Colors.orange,
       ),
-      NavButton(
-        text: "LinkedIn",
+      IconButtonClass(
+        image: "linkedin.png",
         onPressed: () {
           html.window
               .open("https://www.linkedin.com/in/yash-rastogi/", "LinkedIn");
         },
-        color: Colors.orange,
       ),
-      NavButton(
-        text: "Facebook",
+      IconButtonClass(
+        image: "facebook.png",
         onPressed: () {
           html.window.open("https://www.facebook.com/yash.rastogi.581", "Fb");
         },
-        color: Colors.orange,
       ),
-      NavButton(
-        text: "Instagram",
+      IconButtonClass(
+        image: "instagram.png",
         onPressed: () {
           html.window.open("https://www.instagram.com/yashrastogi11/", "Insta");
         },
-        color: Colors.orange,
       ),
     ];
   }
-
-  Widget copyRightText() => Text(
-        "Yash Rastogi ©️2019",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          color: Colors.grey,
-        ),
-      );
 
   @override
   Widget build(BuildContext context) {
@@ -320,19 +338,11 @@ class SocialInfo extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: socialMediaWidgets(),
           ),
-          copyRightText(),
         ],
       ),
-      smallScreen: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[ 
-          ...socialMediaWidgets(), 
-          SizedBox(
-            height: 20,
-          ),
-          copyRightText(),
-        ],
+      smallScreen: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: socialMediaWidgets(),
       ),
     );
   }
