@@ -13,10 +13,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        // primarySwatch: Colors.white,
+
         // brightness: Brightness.dark,
         // primaryColor: Colors.white,
         // primaryColorDark: Colors.white,
-        fontFamily: "Merriweather"
+        fontFamily: "Montserrat"
       ),
       home: ProfilePage(),
     );

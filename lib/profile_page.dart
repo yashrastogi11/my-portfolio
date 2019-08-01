@@ -3,29 +3,51 @@ import 'package:portfolio/contact.dart';
 import 'package:portfolio/responsive_widget.dart';
 import 'dart:html' as html;
 
+import 'package:portfolio/skills.dart';
+
 class ProfilePage extends StatelessWidget {
   const ProfilePage({Key key}) : super(key: key);
 
   List<Widget> navButtons(context) => [
         NavButton(
-          text: "About",
+          text: "HOME",
           onPressed: () {
-            html.window.open("https://github.com/yashrastogi11", "Yr");
+            html.window
+                .open("https://yashrastogi11.github.io/my-portfolio/", "home");
           },
         ),
+        SizedBox(
+          width: 60,
+        ),
         NavButton(
-          text: "Projects",
+          text: "SKILLS",
+          onPressed: () {
+            html.window.open(
+                "https://github.com/yashrastogi11?tab=repositories", "skills");
+          },
+        ),
+        SizedBox(
+          width: 60,
+        ),
+        NavButton(
+          text: "PROJECTS",
           onPressed: () {
             html.window.open(
                 "https://github.com/yashrastogi11?tab=repositories",
                 "projects");
           },
         ),
+        SizedBox(
+          width: 60,
+        ),
         NavButton(
-          text: "Contact",
+          text: "CONTACT",
           onPressed: () {
             html.window.open("https://about.me/yashrastogi", "Yr");
           },
+        ),
+        SizedBox(
+          width: 170,
         ),
         // FlatButton(
         //     child: Text(
@@ -44,8 +66,23 @@ class ProfilePage extends StatelessWidget {
       largeScreen: Scaffold(
         backgroundColor: Color.fromARGB(255, 248, 243, 240),
         appBar: AppBar(
+          leading: SizedBox(
+            width: 100,
+          ),
+          title: YRDot(),
           elevation: 0,
           backgroundColor: Color.fromARGB(255, 53, 71, 57),
+          actions: <Widget>[
+            if (ResponsiveWidget.isLargeScreen(context))
+              (Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: navButtons(context),
+              ))
+            // else if (ResponsiveWidget.isSmallScreen(context))
+            //   (Column(
+            //     children: navButtons(context),
+            //   ))
+          ],
         ),
         drawer: ResponsiveWidget.isSmallScreen(context)
             ? Drawer(
@@ -73,6 +110,10 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
                   ),
+                  Skills(),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.2,
+                  ),
                   SocialInfo(),
                 ],
               ),
@@ -97,11 +138,11 @@ class NavHeader extends StatelessWidget {
             : MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          YRDot(),
-          if (!ResponsiveWidget.isSmallScreen(context))
-            Row(
-              children: navButtons,
-            )
+          // YRDot(),
+          // if (!ResponsiveWidget.isSmallScreen(context))
+          //   Row(
+          //     children: navButtons,
+          //   )
         ],
       ),
     );
@@ -115,9 +156,9 @@ class YRDot extends StatelessWidget {
       children: <Widget>[
         Text(
           "YR",
-          textScaleFactor: 2,
+          textScaleFactor: 1.8,
           style: TextStyle(
-            color: Color.fromARGB(255, 53, 71, 57),
+            color: Color.fromARGB(255, 248, 243, 240),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -154,8 +195,7 @@ class NavButton extends StatelessWidget {
         text,
         textScaleFactor: 1.25,
         style: TextStyle(
-          color: Colors.black,
-        ),
+            color: Color.fromARGB(255, 248, 243, 240), letterSpacing: 2),
       ),
       onPressed: onPressed,
     );
@@ -194,7 +234,7 @@ class ProfileInfo extends StatelessWidget {
             height: 20,
           ),
           Text(
-            "Yash\nRastogi",
+            "Yash Rastogi",
             textScaleFactor: 5,
             style: TextStyle(
               color: Color.fromARGB(255, 53, 71, 57),
@@ -215,15 +255,17 @@ class ProfileInfo extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 20,
+            height: 40,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               ButtonTheme(
-                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 90,
+                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 120,
+                height: ResponsiveWidget.isSmallScreen(context) ? 120 : 45,
                 child: RaisedButton(
+                  elevation: 0,
                   onPressed: () {
                     html.window.open(
                         "https://drive.google.com/file/d/13Go8mTr33NV5C5g0z8HH3JF1CF_qucvM/view?usp=sharing",
@@ -232,17 +274,21 @@ class ProfileInfo extends StatelessWidget {
                   shape: StadiumBorder(),
                   child: Text(
                     "Resume",
-                    style: TextStyle(color: Colors.black),
+                    textScaleFactor: 1.1,
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
                   ),
                   color: Color.fromARGB(255, 206, 133, 35),
-                  padding: EdgeInsets.all(10),
+                  // padding: EdgeInsets.all(0),
                 ),
               ),
               SizedBox(
-                width: 20,
+                width: 40,
               ),
               ButtonTheme(
-                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 90,
+                minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 120,
+                height: ResponsiveWidget.isSmallScreen(context) ? 120 : 45,
                 child: OutlineButton(
                   borderSide: BorderSide(
                     color: Color.fromARGB(255, 206, 133, 35),
@@ -250,6 +296,7 @@ class ProfileInfo extends StatelessWidget {
                   shape: StadiumBorder(),
                   child: Text(
                     "Say Hi!",
+                    textScaleFactor: 1.1,
                     style: TextStyle(
                       color: Colors.black,
                     ),
@@ -266,6 +313,58 @@ class ProfileInfo extends StatelessWidget {
         ],
       );
 
+  List<Widget> navButtons(context) => [
+        NavButton(
+          text: "HOME",
+          onPressed: () {
+            html.window
+                .open("https://yashrastogi11.github.io/my-portfolio/", "home");
+          },
+        ),
+        SizedBox(
+          width: 60,
+        ),
+        NavButton(
+          text: "SKILLS",
+          onPressed: () {
+            html.window.open(
+                "https://github.com/yashrastogi11?tab=repositories", "skills");
+          },
+        ),
+        SizedBox(
+          width: 60,
+        ),
+        NavButton(
+          text: "PROJECTS",
+          onPressed: () {
+            html.window.open(
+                "https://github.com/yashrastogi11?tab=repositories",
+                "projects");
+          },
+        ),
+        SizedBox(
+          width: 60,
+        ),
+        NavButton(
+          text: "CONTACT",
+          onPressed: () {
+            html.window.open("https://about.me/yashrastogi", "Yr");
+          },
+        ),
+        SizedBox(
+          width: 170,
+        ),
+        // FlatButton(
+        //     child: Text(
+        //       "GO",
+        //       textScaleFactor: 1.25,
+        //     ),
+        //     onPressed: () {
+        //       Navigator.of(context).push(MaterialPageRoute(
+        //           builder: (BuildContext context) => Contact()));
+        //     }),
+      ];
+
   @override
   Widget build(BuildContext context) {
     return ResponsiveWidget(
@@ -281,6 +380,8 @@ class ProfileInfo extends StatelessWidget {
         // mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
+          // navButtons(context),
+          // navButtons(context),
           profileImage(context),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.1,
