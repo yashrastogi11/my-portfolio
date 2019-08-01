@@ -6,5 +6,13 @@
                 "asset": "Merriweather.ttf"
             }
         ]
+    },
+    {
+        "family": "Montserrat",
+        "fonts": [
+            {
+                "asset": "Montserrat.ttf"
+            }
+        ]
     }
 ]
