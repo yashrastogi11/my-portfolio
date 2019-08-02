@@ -263,7 +263,7 @@ class ProfileInfo extends StatelessWidget {
             children: <Widget>[
               ButtonTheme(
                 minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 120,
-                height: ResponsiveWidget.isSmallScreen(context) ? 120 : 45,
+                height: ResponsiveWidget.isSmallScreen(context) ? 50 : 45,
                 child: RaisedButton(
                   elevation: 0,
                   onPressed: () {
@@ -288,7 +288,7 @@ class ProfileInfo extends StatelessWidget {
               ),
               ButtonTheme(
                 minWidth: ResponsiveWidget.isSmallScreen(context) ? 120 : 120,
-                height: ResponsiveWidget.isSmallScreen(context) ? 120 : 45,
+                height: ResponsiveWidget.isSmallScreen(context) ? 50 : 45,
                 child: OutlineButton(
                   borderSide: BorderSide(
                     color: Color.fromARGB(255, 206, 133, 35),

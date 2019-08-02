@@ -7,233 +7,286 @@ class Skills extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     skillData(context) => ResponsiveWidget.isLargeScreen(context)
-        ? Column(
+        ? Stack(
             children: <Widget>[
-              Text(
-                "SKILLS",
-                textScaleFactor: 4,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 53, 71, 57),
-                  fontWeight: FontWeight.bold,
+              Positioned(
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  // width: MediaQuery.of(context).size.width,
+                  child: Image.asset(
+                    "skill.jpg",
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
-                          ),
-                          Text(
-                            "Machine\nLearning",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
-                          ),
-                          Text(
-                            "Flutter",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
-                          ),
-                          Text(
-                            "Competetive\nCoding",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          )
-        : Column(
-            children: <Widget>[
-              Text(
-                "SKILLS",
-                textScaleFactor: 4,
-                style: TextStyle(
-                  color: Color.fromARGB(255, 53, 71, 57),
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 50,
               ),
               Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
-                          ),
-                          Text(
-                            "Machine\nLearning",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
-                      ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                  Padding(
+                    padding: EdgeInsets.all(25),
+                    child: Text(
+                      "SKILLS",
+                      textScaleFactor: 4,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 53, 71, 57),
+                        fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        // decoration:
+                        //     BoxDecoration(border: Border.all(color: Colors.black)),
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width / 6,
+                              top: 30,
+                              bottom: 30,
+                              right: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                height: 310,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("ml.jpg"),
+                              ),
+                              Text(
+                                "Machine\nLearning",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Flutter",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(20),
+                            ),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
+                        ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      Container(
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.all(30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              SizedBox(
+                                height: 25,
+                              ),
+                              Container(
+                                height: 200,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("flutter.jpg"),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                              Text(
+                                "Flutter",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
                       ),
+                      Container(
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width / 6,
+                              top: 30,
+                              bottom: 30,
+                              left: 30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                height: 310,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("coding.jpg"),
+                              ),
+                              Text(
+                                "Competetive\nCoding",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            ],
+          )
+        : Stack(
+            children: <Widget>[
+              Positioned(
+                width: MediaQuery.of(context).size.width,
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 1530,
+                  child: Image.asset(
+                    "skill.jpg",
+                    fit: BoxFit.fill,
+                  ),
+                ),
+              ),
+              Column(
+                children: <Widget>[
+                  SizedBox(
+                    height: 40,
+                  ),
+                  Text(
+                    "SKILLS",
+                    textScaleFactor: 4,
+                    style: TextStyle(
+                      color: Color.fromARGB(255, 53, 71, 57),
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
-                    height: 450,
-                    child: Card(
-                      elevation: 0,
-                      margin: EdgeInsets.all(30),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            height: 310,
-                            width: 250,
-                            padding: EdgeInsets.all(10),
-                            child: Image.asset("web.jpg"),
+                  SizedBox(
+                    height: 50,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.all(30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                height: 310,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("ml.jpg"),
+                              ),
+                              Text(
+                                "Machine\nLearning",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
                           ),
-                          Text(
-                            "Competetive\nCoding",
-                            textAlign: TextAlign.center,
-                            textScaleFactor: 1.4,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 53, 71, 57),
-                                fontWeight: FontWeight.bold),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
                           ),
-                          SizedBox(
-                            height: 20,
-                          ),
-                        ],
+                        ),
                       ),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(20)),
+                      Container(
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.all(30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                height: 310,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("flutter.jpg"),
+                              ),
+                              Text(
+                                "Flutter",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
                       ),
-                    ),
+                      Container(
+                        height: 450,
+                        child: Card(
+                          elevation: 0,
+                          margin: EdgeInsets.all(30),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                height: 310,
+                                width: 250,
+                                padding: EdgeInsets.all(10),
+                                child: Image.asset("coding.jpg"),
+                              ),
+                              Text(
+                                "Competetive\nCoding",
+                                textAlign: TextAlign.center,
+                                textScaleFactor: 1.4,
+                                style: TextStyle(
+                                    color: Color.fromARGB(255, 53, 71, 57),
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(
+                                height: 20,
+                              ),
+                            ],
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(Radius.circular(20)),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
