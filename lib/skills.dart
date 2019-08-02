@@ -15,6 +15,8 @@ class Skills extends StatelessWidget {
                   // width: MediaQuery.of(context).size.width,
                   child: Image.asset(
                     "skill.jpg",
+                    color: Colors.white,
+                    colorBlendMode: BlendMode.hardLight,
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -93,7 +95,7 @@ class Skills extends StatelessWidget {
                                 height: 200,
                                 width: 250,
                                 padding: EdgeInsets.all(10),
-                                child: Image.asset("flutter.jpg"),
+                                child: Image.asset("app.jpg"),
                               ),
                               SizedBox(
                                 height: 20,
@@ -160,17 +162,6 @@ class Skills extends StatelessWidget {
           )
         : Stack(
             children: <Widget>[
-              Positioned(
-                width: MediaQuery.of(context).size.width,
-                child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 1530,
-                  child: Image.asset(
-                    "skill.jpg",
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
               Column(
                 children: <Widget>[
                   SizedBox(
@@ -191,15 +182,15 @@ class Skills extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Container(
-                        height: 450,
+                        height: 350,
                         child: Card(
                           elevation: 0,
-                          margin: EdgeInsets.all(30),
+                          margin: EdgeInsets.all(20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: 310,
+                                height: 250,
                                 width: 250,
                                 padding: EdgeInsets.all(10),
                                 child: Image.asset("ml.jpg"),
@@ -212,9 +203,6 @@ class Skills extends StatelessWidget {
                                     color: Color.fromARGB(255, 53, 71, 57),
                                     fontWeight: FontWeight.bold),
                               ),
-                              SizedBox(
-                                height: 20,
-                              ),
                             ],
                           ),
                           shape: RoundedRectangleBorder(
@@ -223,18 +211,18 @@ class Skills extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 450,
+                        height: 350,
                         child: Card(
                           elevation: 0,
-                          margin: EdgeInsets.all(30),
+                          margin: EdgeInsets.all(20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: 310,
+                                height: 250,
                                 width: 250,
                                 padding: EdgeInsets.all(10),
-                                child: Image.asset("flutter.jpg"),
+                                child: Image.asset("app.jpg"),
                               ),
                               Text(
                                 "Flutter",
@@ -255,15 +243,15 @@ class Skills extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        height: 450,
+                        height: 350,
                         child: Card(
                           elevation: 0,
-                          margin: EdgeInsets.all(30),
+                          margin: EdgeInsets.all(20),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               Container(
-                                height: 310,
+                                height: 250,
                                 width: 250,
                                 padding: EdgeInsets.all(10),
                                 child: Image.asset("coding.jpg"),
@@ -275,9 +263,6 @@ class Skills extends StatelessWidget {
                                 style: TextStyle(
                                     color: Color.fromARGB(255, 53, 71, 57),
                                     fontWeight: FontWeight.bold),
-                              ),
-                              SizedBox(
-                                height: 20,
                               ),
                             ],
                           ),

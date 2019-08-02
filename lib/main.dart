@@ -15,11 +15,10 @@ class MyApp extends StatelessWidget {
       title: "Yash Rastogi",
       theme: ThemeData(
         // primarySwatch: Colors.white,
-
         // brightness: Brightness.dark,
-        // primaryColor: Colors.white,
+        primaryColor: Color.fromARGB(255, 53, 71, 57),
         // primaryColorDark: Colors.white,
-        fontFamily: "Montserrat"
+        fontFamily: "Montserrat",
       ),
       home: ProfilePage(),
     );
