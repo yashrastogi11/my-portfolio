@@ -11,10 +11,8 @@ class ProfilePage extends StatelessWidget {
         NavButton(
           text: "HOME",
           onPressed: () {
-            html.window.open(
-              "https://yashrastogi11.github.io/my-portfolio/",
-              "home",
-            );
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => ProfilePage()));
           },
         ),
         SizedBox(
@@ -153,10 +151,8 @@ class NavHeader extends StatelessWidget {
                 color: Color.fromARGB(255, 53, 71, 57), letterSpacing: 2),
           ),
           onPressed: () {
-            html.window.open(
-              "https://yashrastogi11.github.io/my-portfolio/",
-              "home",
-            );
+            Navigator.of(context).push(MaterialPageRoute(
+                builder: (BuildContext context) => ProfilePage()));
           },
         ),
         FlatButton(
@@ -209,31 +205,37 @@ class NavHeader extends StatelessWidget {
 class YRDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Text(
-          "YR",
-          textScaleFactor: 1.8,
-          style: TextStyle(
-            color: ResponsiveWidget.isSmallScreen(context)
-                ? Color.fromARGB(255, 53, 71, 57)
-                : Color.fromARGB(255, 248, 243, 240),
-            fontWeight: FontWeight.bold,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (BuildContext context) => ProfilePage()));
+      },
+      child: Row(
+        children: <Widget>[
+          Text(
+            "YR",
+            textScaleFactor: 1.8,
+            style: TextStyle(
+              color: ResponsiveWidget.isSmallScreen(context)
+                  ? Color.fromARGB(255, 53, 71, 57)
+                  : Color.fromARGB(255, 248, 243, 240),
+              fontWeight: FontWeight.bold,
+            ),
           ),
-        ),
-        SizedBox(
-          width: 5,
-        ),
-        AnimatedContainer(
-          duration: Duration(seconds: 1),
-          height: 15,
-          width: 15,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: Color.fromARGB(255, 206, 133, 35),
+          SizedBox(
+            width: 5,
           ),
-        ),
-      ],
+          AnimatedContainer(
+            duration: Duration(seconds: 1),
+            height: 15,
+            width: 15,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: Color.fromARGB(255, 206, 133, 35),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -371,58 +373,6 @@ class ProfileInfo extends StatelessWidget {
           )
         ],
       );
-
-  List<Widget> navButtons(context) => [
-        NavButton(
-          text: "HOME",
-          onPressed: () {
-            html.window
-                .open("https://yashrastogi11.github.io/my-portfolio/", "home");
-          },
-        ),
-        SizedBox(
-          width: 60,
-        ),
-        NavButton(
-          text: "SKILLS",
-          onPressed: () {
-            html.window.open(
-                "https://github.com/yashrastogi11?tab=repositories", "skills");
-          },
-        ),
-        SizedBox(
-          width: 60,
-        ),
-        NavButton(
-          text: "PROJECTS",
-          onPressed: () {
-            html.window.open(
-                "https://github.com/yashrastogi11?tab=repositories",
-                "projects");
-          },
-        ),
-        SizedBox(
-          width: 60,
-        ),
-        NavButton(
-          text: "CONTACT",
-          onPressed: () {
-            html.window.open("https://about.me/yashrastogi", "Yr");
-          },
-        ),
-        SizedBox(
-          width: 170,
-        ),
-        // FlatButton(
-        //     child: Text(
-        //       "GO",
-        //       textScaleFactor: 1.25,
-        //     ),
-        //     onPressed: () {
-        //       Navigator.of(context).push(MaterialPageRoute(
-        //           builder: (BuildContext context) => Contact()));
-        //     }),
-      ];
 
   @override
   Widget build(BuildContext context) {
